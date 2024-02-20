@@ -1,7 +1,7 @@
 use ed25519_dalek as ed25519;
 pub use ed25519::{VerifyingKey, SigningKey};
 
-pub use prost::Message;
+pub use prost::Message as MessageTrait;
 
 pub const HASH_LENGTH: usize = 20;
 
