@@ -1,6 +1,8 @@
 use ed25519_dalek as ed25519;
 pub use ed25519::{VerifyingKey, SigningKey};
 
+pub use prost::Message;
+
 pub const HASH_LENGTH: usize = 20;
 
 pub mod proto {
@@ -37,4 +39,23 @@ pub mod utils {
 }
 
 #[cfg(test)]
-mod tests {}
+mod tests {
+    use prost::Message;
+    use crate::proto::MessageData;
+
+    #[tokio::test]
+    async fn test_ok() -> Result<(), Box<dyn std::error::Error>> {
+        let data = MessageData {
+            r#type: 0,
+            fid: 0,
+            timestamp: 0,
+            network: 0,
+            body: None,
+        };
+
+        data.encode_to_vec();
+
+        Ok(())
+    }
+
+}
