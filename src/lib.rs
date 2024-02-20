@@ -31,7 +31,7 @@ pub mod utils {
         truncated
     }
 
-    pub fn hash_signature(signing_key: &SigningKey, hash: &[u8; HASH_LENGTH]) -> [u8; SIGNATURE_LENGTH] {
+    pub fn sign_hash(signing_key: &SigningKey, hash: &[u8; HASH_LENGTH]) -> [u8; SIGNATURE_LENGTH] {
         signing_key.sign(hash).to_bytes()
     }
 }
