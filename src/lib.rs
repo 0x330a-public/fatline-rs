@@ -1,4 +1,4 @@
-pub use ed25519::SigningKey;
+pub use ed25519::{VerifyingKey, SigningKey};
 use ed25519_dalek as ed25519;
 
 pub const HASH_LENGTH: usize = 20;
@@ -6,6 +6,9 @@ pub const HASH_LENGTH: usize = 20;
 pub mod proto {
     tonic::include_proto!("_"); // farcaster protos don't use package
 }
+
+#[cfg(feature = "client")]
+pub use proto::hub_service_client::HubServiceClient;
 
 pub mod utils {
     use ed25519_dalek::{SIGNATURE_LENGTH, Signer};
