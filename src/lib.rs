@@ -33,7 +33,7 @@ pub mod utils {
     pub fn message_hash(message_data: &MessageData) -> [u8; HASH_LENGTH] {
         let hash = blake3::hash(&message_data.encode_to_vec());
         let mut truncated: [u8; HASH_LENGTH] = [0u8; HASH_LENGTH];
-        truncated.copy_from_slice(hash.as_bytes());
+        truncated.copy_from_slice(&hash.as_bytes()[0..HASH_LENGTH]);
         truncated
     }
 
