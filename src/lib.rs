@@ -5,7 +5,7 @@ pub use prost::Message as MessageTrait;
 
 // 160-bit blake3 hash length used by Farcaster rpc requests
 pub const HASH_LENGTH: usize = 20;
-// Time since Farcaster epoch, used in timestamps throughout rpc
+// Farcaster epoch in seconds, used to calculate timestamps in rpc
 pub const FARCASTER_EPOCH: u64 = 1609459200;
 
 pub mod proto {
