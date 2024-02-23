@@ -87,7 +87,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let message = Message {
         data_bytes: Some(data.encode_to_vec()),
-        data: Some(data),
+        data: None,
         hash_scheme: HashScheme::Blake3 as i32,
         signature_scheme: SignatureScheme::Ed25519 as i32,
         signature: signature.to_vec(),
