@@ -13,11 +13,14 @@ rand = "0.8.5"
 ed25519-dalek = { version = "2.1.1", features = ["rand_core"] }
 blake3 = { version = "1.5.0" }
 hex = "0.4.3"
+serde = { version = "1", optional = true, features = ["derive"] }
+anyhow = { version = "1", optional = true }
+async-trait = { version = "0.1", optional = true }
 
 [build-dependencies]
 tonic-build = "0.11"
 
 [features]
-default = ["client"]
-
+default = ["client", "service_types"]
+service_types = ["dep:serde", "dep:anyhow", "dep:async-trait"]
 client = []
